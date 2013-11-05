@@ -153,10 +153,6 @@ var credentials = (function() {
     }
 
     function RgmLoginDetails(details) { this.details = details; }
-    /*
-      token: "Xpw4ChCLrElUAAAAAAAAAAYAol9YhAv8HReUrDi_pBIZ-eBYpEjl8lAcM61a2Ihtp",
-      uid: "16477297"
-    */
     RgmLoginDetails.prototype.hasToken = function() {
 	return typeof this.details.token !== "undefined"  && this.details.accessToken !== null;
     }
