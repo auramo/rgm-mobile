@@ -8,7 +8,7 @@ To test this you'll have to edit your own Dropbox API key and secret into RgmLog
 
 Then I point the browser to http://localhost:5000/index.html
 
-To run it on android you'll have to install cordova, android SDK, set the ANDROID_HOME env variable to point here: <your adt bundle location>/sdk and then run:
+To run it on android you'll have to install cordova, android SDK, set the ANDROID_HOME env variable to point to your sdk and then run:
 
     cordova run android
 
