@@ -1,32 +1,38 @@
 
-//Temporary hack, use constructor here as well to get around this problem
-var _credentialRepository = new credentials.CredentialRepository();
+var app = function() {
+    var credentialRepository = new credentials.CredentialRepository();
+    var theEditView = new editView.EditView(credentialRepository);
+    var theListView = new listView.ListView(credentialRepository);
+    var masterPasswordDialog = new masterPassword.MasterPasswordDialog();
 
-var app = {
-    credentialRepository: _credentialRepository,
-    theEditView: new editView.EditView(_credentialRepository),
-    theListView: new listView.ListView(_credentialRepository),
-    masterPasswordDialog: new masterPassword.MasterPasswordDialog(),
-    initialize: function() {
-        this.bindEvents();
-    },
+    function initialize() {
+        bindEvents();
+    }
 
-    bindEvents: function() {
-	if (this.runningInMobileDevice()) {
+    function bindEvents() {
+	if (runningInMobileDevice()) {
 	    logger.log("Running in mobile device");
-            document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+            document.addEventListener('deviceready', onDeviceReady, false);
 	} else {
 	    logger.log("Running in normal web page device");
-	    document.addEventListener('DOMContentLoaded', this.onDeviceReady.bind(this), false);
+	    document.addEventListener('DOMContentLoaded', onDeviceReady, false);
 	}
-    },
+    }
 
-    onDeviceReady: function() {
+    function onDeviceReady() {
 	ui.showAjaxLoader();
-	this.masterPasswordDialog.show();
-    },
-    runningInMobileDevice: function() {
+	masterPasswordDialog.show();
+    }
+
+    function runningInMobileDevice() {
 	return (document.URL.indexOf("http://") == -1);
     }
-};
+
+    return {
+	initialize: initialize,
+	theEditView: theEditView,
+	theListView: theListView,
+	masterPasswordDialog: masterPasswordDialog
+    }
+}();
 
