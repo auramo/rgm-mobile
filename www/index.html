@@ -43,18 +43,29 @@
 	</div>
 
 	<div class="ui-edit view" style="display:none;">
-	  <label>Site:</label><input type="text" class="creditem-site creditem-value"></input><br/>
-	  <label>Description:</label><input type="text" class="creditem-description creditem-value"></input><br/>
-	  <label>Username:</label><input type="text" class="creditem-user creditem-value"></input><br/>
-	  <label>Password:</label><input type="text" class="creditem-password creditem-value"></input><br/>
+	  <label>Site:</label><input type="text" class="creditem-site input-field"></input><br/>
+	  <label>Description:</label><input type="text" class="creditem-description input-field"></input><br/>
+	  <label>Username:</label><input type="text" class="creditem-user input-field"></input><br/>
+	  <label>Password:</label><input type="text" class="creditem-password input-field"></input><br/>
 	  <input class="rgm-button" type="button" value="Save" />
 	  <input class="rgm-button" type="button" value="X" />
 	</div>
 
-	<div class="ui-master-password view" style="display:none;">
+	<div class="ui-master-password input-view view" style="display:none;">
 	  <label class="master-password-message"></label><br/>
-	  <label class "master-password-prompt">Master password:</label>
-	  <input type="password" class="master-password"></input>
+	  <label class "master-password-prompt input-label">Master password:</label>
+	  <input type="password" class="master-password input-field"></input>
+	  <input class="rgm-button" type="button" value="Ok" />
+	</div>
+
+	<div class="ui-preferences input-view view" style="display:none;">
+	  <p>Fill out missing preferences</p>
+	  <label class "preference-prompt input-label">Dropbox file path:</label>
+	  <input type="text" class="preference-value input-field"></input><br/>
+	  <label class "preference-prompt input-label">Dropbox API Key:</label>
+	  <input type="text" class="preference-value input-field"></input><br/>
+	  <label class "preference-prompt input-label">Dropbox API secret:</label>
+	  <input type="text" class="preference-value input-field"></input><br/>
 	  <input class="rgm-button" type="button" value="Ok" />
 	</div>
 
@@ -85,6 +96,7 @@
       <script type="text/javascript" src="js/lodash.js"></script>
       <script type="text/javascript" src="js/Bacon.js"></script>
       <script type="text/javascript" src="js/bacon.jquery.js"></script>
+      <script type="text/javascript" src="js/preferences.js"></script>
       <script type="text/javascript" src="js/credentials.js"></script>
       <script type="text/javascript" src="js/credentialRepositoryTester.js"></script>
       <script type="text/javascript" src="js/ui.js"></script>

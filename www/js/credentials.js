@@ -1,5 +1,8 @@
 var credentials = (function() {
-
+    
+    var LOGIN_DETAIL_KEY = "rgm.login.loginDetails";
+    var GENERAL_PREFERENCE_KEY = "rgm.preferences";
+    
     var errorCodes = { DECRYPT_ERROR: -42 };
 
     function Credentials(site, description, userName, sitePassword) {
@@ -51,6 +54,7 @@ var credentials = (function() {
 		    if (error.status === Dropbox.ApiError.INVALID_TOKEN) {
 			logger.log("Got invalid token, invalidating old session");
 			var loginDetails = that.loginDetailRepository.getStoredLoginDetails();
+			loginDetails.validate();
 			loginDetails.invalidateSession();
 			that.loginDetailRepository.storeLoginDetails(loginDetails);
 			that.readFromDropbox(successCallback, errorCallback);
@@ -152,7 +156,19 @@ var credentials = (function() {
 	return result;
     }
 
-    function RgmLoginDetails(details) { this.details = details; }
+    function RgmLoginDetails(details) { 
+	this.details = details; 
+    }
+    RgmLoginDetails.prototype.validate = function() {
+	if (!hasMinimumDetails()) {
+	    var errMsg = "Dropbox api key and secret (" + LOGIN_DETAIL_KEY + ".key" + " and " + LOGIN_DETAIL_KEY + ".secret) must be defined, DropBox login requires them";
+	    alert(errMsg);
+	    throw new Error(errMsg);	    
+	}
+    }
+    RgmLoginDetails.prototype.hasMinimumDetails = function () {
+	return _.isEmpty(this.details.key) || _.isEmpty(this.details.secret);
+    }
     RgmLoginDetails.prototype.hasToken = function() {
 	return typeof this.details.token !== "undefined"  && this.details.accessToken !== null;
     }
@@ -169,9 +185,8 @@ var credentials = (function() {
 
 
     function RgmLoginDetailRepository() {}
-    RgmLoginDetailRepository.prototype.KEY = "rgm.login.loginDetails";
     RgmLoginDetailRepository.prototype.getStoredLoginDetails = function() {
-	var details = window.localStorage.getItem(this.KEY);
+	var details = window.localStorage.getItem(LOGIN_DETAIL_KEY);
 	if (_.isEmpty(details)) {
 	    details = {}
 	} else {
@@ -180,11 +195,8 @@ var credentials = (function() {
 	//Get/create these at this site: https://www.dropbox.com/developers 
 	//details.key = "my key";
 	//details.secret = "my secret";
-	if (_.isEmpty(details.key) || _.isEmpty(details.secret)) {
-	    var errMsg = this.KEY + ".key and .secret must be defined, DropBox login requires them";
-	    alert(errMsg);
-	    throw new Error(errMsg);
-	}
+
+
 	var loginDetails = new RgmLoginDetails(details);
 	return loginDetails;
     }
@@ -202,6 +214,7 @@ var credentials = (function() {
 	Credentials: Credentials,
 	RgmLoginDetails: RgmLoginDetails,
 	RgmLoginDetailRepository: RgmLoginDetailRepository,
-	errorCodes: errorCodes
+	errorCodes: errorCodes,
+	GENERAL_PREFERENCE_KEY: GENERAL_PREFERENCE_KEY
     };
 })();

@@ -4,6 +4,7 @@ var app = function() {
     var theEditView = new editView.EditView(credentialRepository);
     var theListView = new listView.ListView(credentialRepository);
     var masterPasswordDialog = new masterPassword.MasterPasswordDialog();
+    var preferenceRepository = new preferences.PreferenceRepository();
 
     function initialize() {
         bindEvents();
@@ -21,8 +22,18 @@ var app = function() {
 
     function onDeviceReady() {
 	ui.showAjaxLoader();
-	masterPasswordDialog.show();
+	if (!maybeShowPreferenceDialog())
+	    masterPasswordDialog.show();
     }
+
+    function maybeShowPreferenceDialog() {
+	var prefs = preferenceRepository.getPreferences();
+	if (prefs.missingPreferences()) {
+	    new preferences.PreferencesDialog().show();
+	    return true;
+	}
+	return false;
+     }
 
     function runningInMobileDevice() {
 	return (document.URL.indexOf("http://") == -1);
