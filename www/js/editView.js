@@ -31,7 +31,7 @@ var editView = function() {
 	Bacon.$
 	    .textFieldValue($(".creditem-site"))
 	    .map(function(val) { return val.length === 0; })
-	    .onValue($("input[value='Save']"), "attr", "disabled")
+	    .onValue($("input[name='save-creds']"), "attr", "disabled")
 	this.initSave();
     }
     
@@ -103,7 +103,7 @@ var editView = function() {
 
     EditView.prototype.initSave = function() {
 	var that = this;
-	$( "input[value='Save']" ).bind('click', function(evt) { that.save(); });
+	$( "input[name='save-creds']" ).bind('click', function(evt) { that.save(); });
     }
 
     return { EditView: EditView }

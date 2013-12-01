@@ -1,9 +1,33 @@
 var preferences = function() {
 
-    function PreferencesDialog() {}
+    function PreferencesDialog(preferenceRepository) {
+	this.preferenceRepository = preferenceRepository;
+	var prefs = this.preferenceRepository.getPreferences();
+	this.setValues(prefs);
+	this.initEvents();
+    }
+
+    PreferencesDialog.prototype.initEvents = function() {
+	addStreams(['input[name="file-path"]', 'input[name="api-key"]', 'input[name="api-secret"]']);
+	function addStreams(fieldSelectors) {
+	    console.log(fieldSelectors);
+	    var fieldEmptyProps = _.map(fieldSelectors, function(selector) {
+		return Bacon.$.textFieldValue($(selector)).map(isEmpty)
+	    });
+	    Bacon.combineAsArray.apply(null, fieldEmptyProps)
+	     	.map(_.some)
+	     	.onValue($('input[name="save-prefs"]'), "attr", "disabled");
+	}
+	function isEmpty(val) { return val.length === 0; }
+    }
+
+    PreferencesDialog.prototype.setValues = function(prefs) {
+	$('input[name="file-path"]').val(prefs.getDropboxPath());
+	$('input[name="api-key"]').val(prefs.getDropboxApiKey());
+	$('input[name="api-secret"]').val(prefs.getDropboxApiSecret());
+    }
 
     PreferencesDialog.prototype.show = function() {
-	console.log("PregerencesDialog.show");
 	ui.showView('ui-preferences');
     }
 

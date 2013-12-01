@@ -5,6 +5,7 @@ var app = function() {
     var theListView = new listView.ListView(credentialRepository);
     var masterPasswordDialog = new masterPassword.MasterPasswordDialog();
     var preferenceRepository = new preferences.PreferenceRepository();
+    var preferencesDialog = new preferences.PreferencesDialog(preferenceRepository);
 
     function initialize() {
         bindEvents();
@@ -29,7 +30,7 @@ var app = function() {
     function maybeShowPreferenceDialog() {
 	var prefs = preferenceRepository.getPreferences();
 	if (prefs.missingPreferences()) {
-	    new preferences.PreferencesDialog().show();
+	    preferencesDialog.show();
 	    return true;
 	}
 	return false;
