@@ -3,7 +3,7 @@ var masterPassword = function() {
 
     function MasterPasswordDialog() {
 	var passwordFieldSelector = '.master-password';
-	var buttonSelector = "input[value='Ok']";
+	var buttonSelector = "input[name='master-password-ok']";
 	Bacon.$
 	    .textFieldValue($(passwordFieldSelector))
 	    .map(function(val) { return val.length === 0; })

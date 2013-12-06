@@ -72,7 +72,7 @@ var preferences = function() {
     }
 
     Preferences.prototype.setDropboxApiKey = function(apiKey) {
-	this.loginDetails.details.key = key;
+	this.loginDetails.details.key = apiKey;
     }
 
     function PreferenceRepository() {

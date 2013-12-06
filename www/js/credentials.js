@@ -167,7 +167,7 @@ var credentials = (function() {
 	}
     }
     RgmLoginDetails.prototype.hasMinimumDetails = function () {
-	return _.isEmpty(this.details.key) || _.isEmpty(this.details.secret);
+	return !(_.isEmpty(this.details.key) || _.isEmpty(this.details.secret));
     }
     RgmLoginDetails.prototype.hasToken = function() {
 	return typeof this.details.token !== "undefined"  && this.details.accessToken !== null;
@@ -202,9 +202,8 @@ var credentials = (function() {
     }
     RgmLoginDetailRepository.prototype.storeLoginDetails = function(loginDetails) {
 	logger.log("Storing login details to local storage");
-	logger.log(this.KEY);
 	logger.log(JSON.stringify(loginDetails.details));
-	window.localStorage.setItem(this.KEY, JSON.stringify(loginDetails.details))
+	window.localStorage.setItem(LOGIN_DETAIL_KEY, JSON.stringify(loginDetails.details))
     }
 
     //Decryption Can be tested with this: openssl enc -d -aes-256-cbc -a -in rgm-testing.dat -pass "pass:my password"
