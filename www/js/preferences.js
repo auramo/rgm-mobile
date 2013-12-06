@@ -1,6 +1,10 @@
 var preferences = function() {
 
     function PreferencesDialog(preferenceRepository) {
+	this.filePathField = $('input[name="file-path"]');
+	this.apiKeyField = $('input[name="api-key"]');
+	this.apiSecretField = $('input[name="api-secret"]');
+
 	this.preferenceRepository = preferenceRepository;
 	var prefs = this.preferenceRepository.getPreferences();
 	this.setValues(prefs);
@@ -8,7 +12,10 @@ var preferences = function() {
     }
 
     PreferencesDialog.prototype.initEvents = function() {
+	var saveButton = $('input[name="save-prefs"]')
 	addStreams(['input[name="file-path"]', 'input[name="api-key"]', 'input[name="api-secret"]']);
+	var that = this;
+	saveButton.bind('click', function(evt) { that.save(); });
 	function addStreams(fieldSelectors) {
 	    console.log(fieldSelectors);
 	    var fieldEmptyProps = _.map(fieldSelectors, function(selector) {
@@ -16,15 +23,23 @@ var preferences = function() {
 	    });
 	    Bacon.combineAsArray.apply(null, fieldEmptyProps)
 	     	.map(_.some)
-	     	.onValue($('input[name="save-prefs"]'), "attr", "disabled");
+	     	.onValue(saveButton, "attr", "disabled");
 	}
 	function isEmpty(val) { return val.length === 0; }
     }
 
+    PreferencesDialog.prototype.save = function() {
+	var prefs = new Preferences();
+	prefs.setDropboxPath(this.filePathField.val());
+	prefs.setDropboxApiSecret(this.apiSecretField.val());
+	prefs.setDropboxApiKey(this.apiKeyField.val());
+	this.preferenceRepository.storePreferences(prefs);
+    }
+
     PreferencesDialog.prototype.setValues = function(prefs) {
-	$('input[name="file-path"]').val(prefs.getDropboxPath());
-	$('input[name="api-key"]').val(prefs.getDropboxApiKey());
-	$('input[name="api-secret"]').val(prefs.getDropboxApiSecret());
+	this.filePathField.val(prefs.getDropboxPath());
+	this.apiKeyField.val(prefs.getDropboxApiKey());
+	this.apiSecretField.val(prefs.getDropboxApiSecret());
     }
 
     PreferencesDialog.prototype.show = function() {
@@ -54,6 +69,10 @@ var preferences = function() {
 
     Preferences.prototype.setDropboxApiSecret = function(secret) {
 	this.loginDetails.details.secret = secret;
+    }
+
+    Preferences.prototype.setDropboxApiKey = function(apiKey) {
+	this.loginDetails.details.key = key;
     }
 
     function PreferenceRepository() {

@@ -157,7 +157,7 @@ var credentials = (function() {
     }
 
     function RgmLoginDetails(details) { 
-	this.details = details; 
+	this.details = details || {}; 
     }
     RgmLoginDetails.prototype.validate = function() {
 	if (!hasMinimumDetails()) {
