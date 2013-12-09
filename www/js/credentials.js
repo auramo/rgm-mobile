@@ -192,11 +192,6 @@ var credentials = (function() {
 	} else {
 	    details = JSON.parse(details);
 	}
-	//Get/create these at this site: https://www.dropbox.com/developers 
-	//details.key = "my key";
-	//details.secret = "my secret";
-
-
 	var loginDetails = new RgmLoginDetails(details);
 	return loginDetails;
     }
