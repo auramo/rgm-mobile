@@ -17,7 +17,6 @@ var preferences = function() {
 	var that = this;
 	saveButton.bind('click', function(evt) { that.save(); });
 	function addStreams(fieldSelectors) {
-	    console.log(fieldSelectors);
 	    var fieldEmptyProps = _.map(fieldSelectors, function(selector) {
 		return Bacon.$.textFieldValue($(selector)).map(isEmpty)
 	    });
@@ -26,6 +25,11 @@ var preferences = function() {
 	     	.onValue(saveButton, "attr", "disabled");
 	}
 	function isEmpty(val) { return val.length === 0; }
+    }
+
+    PreferencesDialog.prototype.saveAndShowList = function() {
+	this.save();
+	app.masterPasswordDialog.show();
     }
 
     PreferencesDialog.prototype.save = function() {
