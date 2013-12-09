@@ -15,7 +15,7 @@ var preferences = function() {
 	var saveButton = $('input[name="save-prefs"]')
 	addStreams(['input[name="file-path"]', 'input[name="api-key"]', 'input[name="api-secret"]']);
 	var that = this;
-	saveButton.bind('click', function(evt) { that.save(); });
+	saveButton.bind('click', function(evt) { that.saveAndShowList(); });
 	function addStreams(fieldSelectors) {
 	    var fieldEmptyProps = _.map(fieldSelectors, function(selector) {
 		return Bacon.$.textFieldValue($(selector)).map(isEmpty)
@@ -28,8 +28,10 @@ var preferences = function() {
     }
 
     PreferencesDialog.prototype.saveAndShowList = function() {
+	logger.log("saving preferences...");
 	this.save();
 	app.masterPasswordDialog.show();
+	logger.log("saved");
     }
 
     PreferencesDialog.prototype.save = function() {

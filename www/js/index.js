@@ -44,7 +44,8 @@ var app = function() {
 	initialize: initialize,
 	theEditView: theEditView,
 	theListView: theListView,
-	masterPasswordDialog: masterPasswordDialog
+	masterPasswordDialog: masterPasswordDialog,
+	preferencesDialog: preferencesDialog
     }
 }();
 
