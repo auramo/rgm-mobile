@@ -3,7 +3,7 @@ var logger = (function() {
     return {
 	log: function(message) {
 	    if (typeof console === "object" && typeof console.log === "function") {
-		console.log(prefix, message);
+		console.log(prefix + " " + message);
 	    }
 	}
     }
