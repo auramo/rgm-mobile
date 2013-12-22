@@ -54,7 +54,8 @@ var listView = function() {
     ListView.prototype.hideCredentialView = function() { $('.ui-content').hide(); }
 
     ListView.prototype.populateCredentialView = function(credentialList) { 
-	var contentRowObjects = _.map(credentialList, function(credItem) {
+	var sortedCredList = _.sortBy(credentialList, function(credItem) { return credItem.site.toLowerCase() } );
+	var contentRowObjects = _.map(sortedCredList, function(credItem) {
 	    var rowObject = $('<tr class="credential-row"><td></td><td></td></tr>')
 		.attr('data-id', credItem.site)
 		.find('td')
