@@ -15,13 +15,13 @@ var credentials = (function() {
     function DecryptException(message) { this.message = message; }
     DecryptException.prototype = { toString: function() { return "DecryptException: " + this.message; } }
 
-    function CredentialRepository() {
-	this.dropboxPath = "rgm-testing.dat";
+    function CredentialRepository(preferenceRepository) {
+	this.preferenceRepository = preferenceRepository;
 	this.loginDetailRepository = new RgmLoginDetailRepository();
     }
 
     CredentialRepository.prototype.getDropboxPath = function () {
-	return this.dropboxPath;
+	return this.preferenceRepository.getPreferences().getDropboxPath();
     }
 
     CredentialRepository.prototype.saveCredentialList = function(credentialList, masterPassword, successCallback, errorCallback) {

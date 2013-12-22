@@ -1,10 +1,10 @@
 
 var app = function() {
-    var credentialRepository = new credentials.CredentialRepository();
+    var preferenceRepository = new preferences.PreferenceRepository();
+    var credentialRepository = new credentials.CredentialRepository(preferenceRepository);
     var theEditView = new editView.EditView(credentialRepository);
     var theListView = new listView.ListView(credentialRepository);
     var masterPasswordDialog = new masterPassword.MasterPasswordDialog();
-    var preferenceRepository = new preferences.PreferenceRepository();
     var preferencesDialog = new preferences.PreferencesDialog(preferenceRepository);
 
     function initialize() {
