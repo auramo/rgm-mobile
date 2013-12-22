@@ -33,7 +33,6 @@ var listView = function() {
 	    that.populateCredentialView(credentialList);
 	    that.showCredentialView();
 	}
-	//TODO in here we would switch to master password view if we get credentials.errorCodes.DECRYPT_ERROR
 	function fail(reason, code) {
 	    logger.log("fail reason:");
 	    logger.log(reason);
