@@ -14,10 +14,13 @@ var listView = function() {
             if (_.isEmpty(searchStr.trim())) {
                 rows.show()
             } else {
-                rows.filter(function() { return _.contains($(this).attr('data-id').toLowerCase(), searchStr) }).show()
-                rows.filter(function() { return !_.contains($(this).attr('data-id').toLowerCase(), searchStr) }).hide()
+                rows.filter(function() { return matchesSearch(searchStr, this); }).show()
+                rows.filter(function() { return !matchesSearch(searchStr, this); }).hide()
             }
         });
+        function matchesSearch(searchStr, row) {
+            return _.contains($(row).attr('data-id').toLowerCase(), searchStr)
+        }
     }
 
     ListView.prototype.initRowStream = function() {
