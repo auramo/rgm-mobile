@@ -66,7 +66,11 @@ var listView = function() {
 
     ListView.prototype.disableSplash = function() { $('.splash').hide() }
 
-    ListView.prototype.showCredentialView = function() { logger.log("showCredentialView"); ui.showView('ui-content'); }
+    ListView.prototype.showCredentialView = function() {
+        logger.log("showCredentialView");
+        ui.showView('ui-content');
+        $('.search-credentials').val('');
+    }
 
     ListView.prototype.hideCredentialView = function() { $('.ui-content').hide(); }
 
