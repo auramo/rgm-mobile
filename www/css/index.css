@@ -60,6 +60,10 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+label {
+    font-size: 52px;
+}
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
@@ -71,7 +75,7 @@ body {
 }
 
 h1 {
-    font-size:24px;
+    font-size:48px;
     font-weight:normal;
     margin:0px;
     overflow:visible;
@@ -92,6 +96,7 @@ h1 {
     background-color:#333333;
     display:block;
     margin-bottom: 20px;
+    font-size: 52px;
 }
 
 .event.received {
@@ -118,7 +123,7 @@ h1 {
 .rgm-button {
     border-radius: 15px;
     filter: Alpha(Opacity=0);
-    font-size: 26px;
+    font-size: 52px;
     padding: .6em 20px;
     border-top: 1px solid #fff;
     text-align: center;
@@ -134,7 +139,7 @@ h1 {
     background: #64BBE6 -webkit-linear-gradient(#5A5C5C 0%, #A0A2A4 50%, #E1E3E4 100%); 
 }
 .credential-table {
-     font-size: 26px;
+     font-size: 52px;
      font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
      margin:0px;padding:0px;
      width:100%;
@@ -156,13 +161,13 @@ h1 {
 
 .input-view {
     position: relative;
-    font-size: 26px;
+    font-size: 52px;
     font-family: Helvetica, Arial, sans-serif;
     margin: 20px 0 20px 20px;
 }
 
 .input-field {
-    font-size: 26px;
+    font-size: 52px;
     font-family: Helvetica, Arial, sans-serif;
     margin-left: 10px;
 }
@@ -171,6 +176,12 @@ h1 {
 
 .master-password-message {
     color: red;
+}
+
+.master-password {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 tr.credential-row > td
