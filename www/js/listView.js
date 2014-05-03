@@ -1,9 +1,23 @@
 var listView = function() {
     function ListView(credentialRepository) {
-	this.credentialRepository = credentialRepository;
-	this.disableSplash();
-	this.initRowStream();
-	this.initNewStream();	
+        this.credentialRepository = credentialRepository;
+        this.disableSplash();
+        this.initSearchStream();
+        this.initRowStream();
+        this.initNewStream();
+    }
+
+    ListView.prototype.initSearchStream = function() {
+        Bacon.$.textFieldValue($('.search-credentials')).debounce(400).onValue(function(searchStr) {
+            searchStr = searchStr.toLowerCase();
+            var rows = $('.credential-row')
+            if (_.isEmpty(searchStr.trim())) {
+                rows.show()
+            } else {
+                rows.filter(function() { return _.contains($(this).attr('data-id').toLowerCase(), searchStr) }).show()
+                rows.filter(function() { return !_.contains($(this).attr('data-id').toLowerCase(), searchStr) }).hide()
+            }
+        });
     }
 
     ListView.prototype.initRowStream = function() {
