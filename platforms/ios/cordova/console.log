@@ -1,0 +1,13 @@
+2014-12-04 19:38:43.164 RgmMobile[16801:4684694] Apache Cordova native platform version 3.7.0 is starting.
+2014-12-04 19:38:43.168 RgmMobile[16801:4684694] Multi-tasking -> Device: YES, App: YES
+2014-12-04 19:38:43.180 RgmMobile[16801:4684694] Unlimited access to network resources
+2014-12-04 19:38:43.189 RgmMobile[16801:4684694] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2014-12-04 19:38:43.911 RgmMobile[16801:4684694] Resetting plugins due to page load.
+2014-12-04 19:38:44.331 RgmMobile[16801:4684694] Finished load of: file:///Users/auramo/Library/Developer/CoreSimulator/Devices/DD7DCFFD-81D7-439D-B185-B974267A18C3/data/Containers/Bundle/Application/78B73CDE-1BAC-4483-9E7A-12253814D310/RgmMobile.app/www/index.html

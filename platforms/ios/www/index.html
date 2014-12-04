@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+
+
+      <div id="mainview">
+	<div class="ui-header ui-bar-a">
+	  <div class="ui-title"></div>
+	</div>
+
+	<div class="ui-content view">
+	  <input class="rgm-button" type="button" value="New" />
+          <input type="text" class="search-credentials input-field"></input>
+	  <table class="credential-table">
+	    <thead><tr class="credential-table-header"><td>Site</td><td>Description</td></tr></thead>
+	    <tbody class="credential-table-content"></tbody>
+	  </table>
+	</div>
+
+	<div class="ui-edit view" style="display:none;">
+	  <label>Site:</label><input type="text" class="creditem-site input-field"></input><br/>
+	  <label>Description:</label><input type="text" class="creditem-description input-field"></input><br/>
+	  <label>Username:</label><input type="text" class="creditem-user input-field"></input><br/>
+	  <label>Password:</label><input type="text" class="creditem-password input-field"></input><br/>
+	  <input class="rgm-button" type="button" name="save-creds" value="Save" />
+	  <input class="rgm-button" type="button" value="X" />
+	</div>
+
+	<div class="ui-master-password input-view view" style="display:none;">
+	  <label class="master-password-message"></label><br/>
+	  <label class "master-password-prompt input-label">Master password:</label>
+	  <input type="password" class="master-password input-field"></input>
+	  <input class="rgm-button" type="button" value="Ok" name="master-password-ok"/>
+	  <input class="rgm-button" type="button" value="Preferences" name="master-password-go-to-prefs"/>
+	</div>
+
+	<div class="ui-preferences input-view view" style="display:none;">
+	  <p>Enter missing preferences</p>
+	  <label class "preference-prompt input-label">Dropbox file path:</label>
+	  <input type="text" class="preference-value input-field" name="file-path"></input><br/>
+	  <label class "preference-prompt input-label">Dropbox API Key:</label>
+	  <input type="text" class="preference-value input-field" name="api-key"></input><br/>
+	  <label class "preference-prompt input-label">Dropbox API secret:</label>
+	  <input type="text" class="preference-value input-field" name="api-secret"></input><br/>
+	  <input class="rgm-button" type="button" value="Ok" name="save-prefs"/>
+	</div>
+
+	<div class="ajax-loading view" style="display:none;">
+          <div class="blink">
+            <p class="event listening">Wait ...</p>
+          </div>
+	</div>
+
+	<div class="splash view">
+          <h1>Loading RGM...</h1>
+          <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+          </div>
+	</div>
+      </div>
+
+      <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+      <script type="text/javascript" src="js/logger.js"></script>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/dropbox.js"></script>
+      <script type="text/javascript" src="js/aes.js"></script>
+      <script type="text/javascript" src="js/lodash.js"></script>
+      <script type="text/javascript" src="js/Bacon.js"></script>
+      <script type="text/javascript" src="js/bacon.jquery.js"></script>
+      <script type="text/javascript" src="js/preferences.js"></script>
+      <script type="text/javascript" src="js/credentials.js"></script>
+      <script type="text/javascript" src="js/credentialRepositoryTester.js"></script>
+      <script type="text/javascript" src="js/ui.js"></script>
+      <script type="text/javascript" src="js/masterPassword.js"></script>
+      <script type="text/javascript" src="js/editView.js"></script>
+      <script type="text/javascript" src="js/listView.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript">
+        app.initialize();
+      </script>
+    </body>
+</html>

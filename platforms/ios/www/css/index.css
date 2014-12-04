@@ -1,0 +1,168 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+.ui-content { display: none; } 
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+label {
+    font-size: 52px;
+}
+
+h1 {
+    font-size:48px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+    margin-bottom: 20px;
+    font-size: 52px;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+.rgm-button {
+    border-radius: 15px;
+    filter: Alpha(Opacity=0);
+    font-size: 52px;
+    padding: .6em 20px;
+    border-top: 1px solid #fff;
+    text-align: center;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to bottom, rgb(97,142,245), rgb(57,95,155));
+    background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgb(97,142,245)), color-stop(100%, rgb(57,95,155)));
+}
+.rgm-button:disabled {
+    background: #64BBE6 linear-gradient(#5A5C5C 0%, #A0A2A4 50%, #E1E3E4 100%); 
+    background: #64BBE6 -webkit-linear-gradient(#5A5C5C 0%, #A0A2A4 50%, #E1E3E4 100%); 
+}
+.credential-table {
+     font-size: 52px;
+     font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+     margin:0px;padding:0px;
+     width:100%;
+     border:1px solid #000000;
+     border-radius: 3px;
+     margin-top: 10px;
+}
+
+.credential-table td {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ui-edit {
+    font-size: 26px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-left: 20px;
+}
+
+.input-view {
+    position: relative;
+    font-size: 52px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 20px 0 20px 20px;
+}
+
+.input-field {
+    font-size: 52px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-left: 10px;
+}
+
+.input-label {}
+
+.master-password-message {
+    color: red;
+}
+
+.master-password {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+tr.credential-row > td
+{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+}
+
+.credential-table tr:nth-child(even) {
+    background-color: #4E4F4F;
+    color: white;
+}
+
+.credential-table-header {
+    background-color: #000000;
+    color: white;
+}
+
