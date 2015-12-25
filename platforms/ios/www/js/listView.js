@@ -61,7 +61,7 @@ var listView = function() {
 		alert("Failed to get credentials. Reason: " + reason + " code: " + code);
 	    }
 	}
-	this.credentialRepository.getCredentialList(masterPassword.getPassword(), ok, fail);
+        this.credentialRepository.getCredentialList(masterPassword.getPassword(), ok, fail);
     }
 
     ListView.prototype.disableSplash = function() { $('.splash').hide() }
@@ -77,7 +77,7 @@ var listView = function() {
     ListView.prototype.populateCredentialView = function(credentialList) { 
 	var sortedCredList = _.sortBy(credentialList, function(credItem) { return credItem.site.toLowerCase() } );
 	var contentRowObjects = _.map(sortedCredList, function(credItem) {
-	    var rowObject = $('<tr class="credential-row"><td></td><td></td></tr>')
+	    var rowObject = $('<tr class="credential-row"><td class="site-name"></td><td class="site-description"></td></tr>')
 		.attr('data-id', credItem.site)
 		.find('td')
 		.first()

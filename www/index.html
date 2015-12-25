@@ -22,21 +22,22 @@
         <meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
-        <title>Hello World</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/style.css" />
+        <title>RGM</title>
     </head>
-    <body>
+    <body class="ui-content">
 
 
       <div id="mainview">
-	<div class="ui-header ui-bar-a">
-	  <div class="ui-title"></div>
-	</div>
-
 	<div class="ui-content view">
-	  <input class="rgm-button" type="button" value="New" />
+          <div class="header">RGM password manager</div>
+          <hr/>
+          <label class="find-label">Find:</label>
           <input type="text" class="search-credentials input-field"></input>
+          <hr class="minor-separator"/>
+	  <input class="new-button" type="button" value="New" />
 	  <table class="credential-table">
 	    <thead><tr class="credential-table-header"><td>Site</td><td>Description</td></tr></thead>
 	    <tbody class="credential-table-content"></tbody>
