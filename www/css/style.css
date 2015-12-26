@@ -78,3 +78,18 @@ input[type="button"]:disabled { color: rgb(69, 69, 69); }
 .credential-row > .site-name { max-width: 100px; }
 .credential-row > .site-description { max-width: 158px; }
 .new-button { margin: 10px 0px; 10px; 0px; }
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-container > label, .edit-container input {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+}

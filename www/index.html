@@ -28,12 +28,17 @@
 	</div>
 
 	<div class="ui-edit view" style="display:none;">
-	  <label>Site:</label><input type="text" class="creditem-site input-field"></input><br/>
-	  <label>Description:</label><input type="text" class="creditem-description input-field"></input><br/>
-	  <label>Username:</label><input type="text" class="creditem-user input-field"></input><br/>
-	  <label>Password:</label><input type="text" class="creditem-password input-field"></input><br/>
-	  <input class="rgm-button" type="button" name="save-creds" value="Save" />
-	  <input class="rgm-button" type="button" value="X" />
+          <div class="edit-container">
+	    <label>Site:</label><input type="text" class="creditem-site input-field"></input>
+	    <label>Description:</label><input type="text" class="creditem-description input-field"></input>
+	    <label>Username:</label><input type="text" class="creditem-user input-field"></input>
+	    <label>Password:</label><input type="text"
+	                                   class="creditem-password input-field"></input>
+            <div class="edit-buttons">
+	      <input class="rgm-button" type="button" name="save-creds" value="Save" />
+	      <input class="rgm-button" type="button" value="X" />
+            </div>
+          </div>
 	</div>
 
 	<div class="ui-master-password input-view view"
