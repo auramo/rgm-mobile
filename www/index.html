@@ -1,22 +1,5 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -28,12 +11,12 @@
         <title>RGM</title>
     </head>
     <body class="ui-content">
-
-
+      <div class="header-container">
+        <div class="header">RGM password manager</div>
+      </div>
+      <hr/>
       <div id="mainview">
 	<div class="ui-content view">
-          <div class="header">RGM password manager</div>
-          <hr/>
           <label class="find-label">Find:</label>
           <input type="text" class="search-credentials input-field"></input>
           <hr class="minor-separator"/>
@@ -53,12 +36,19 @@
 	  <input class="rgm-button" type="button" value="X" />
 	</div>
 
-	<div class="ui-master-password input-view view" style="display:none;">
-	  <label class="master-password-message"></label><br/>
-	  <label class "master-password-prompt input-label">Master password:</label>
-	  <input type="password" class="master-password input-field"></input>
-	  <input class="rgm-button" type="button" value="Ok" name="master-password-ok"/>
-	  <input class="rgm-button" type="button" value="Preferences" name="master-password-go-to-prefs"/>
+	<div class="ui-master-password input-view view"
+	     style="display:none;">
+          <div class="login-container">
+	    <label class="master-password-message"></label><br/>
+	    <label class "master-password-prompt input-label">Master password:</label>
+	    <input type="password" class="master-password
+	                                  input-field"></input>
+            <div class="login-buttons">
+	      <input class="rgm-button" type="button" value="Log in" name="master-password-ok"/>
+	      <input class="rgm-button" type="button" value="Preferences"
+	             name="master-password-go-to-prefs"/>
+            </div>
+          </div>
 	</div>
 
 	<div class="ui-preferences input-view view" style="display:none;">
