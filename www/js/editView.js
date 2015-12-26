@@ -26,7 +26,7 @@ var editView = function() {
 
     function EditView(credentialRepository) {
 	this.credentialRepository = credentialRepository;
-	$( "input[value='X']" ).bind('click', function(evt) { close(); });
+	$( "input[name='edit-close']" ).bind('click', function(evt) { close(); });
 
 	Bacon.$
 	    .textFieldValue($(".creditem-site"))

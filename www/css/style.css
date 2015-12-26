@@ -49,6 +49,7 @@ input[type="text"], input[type="password"] {
     font-size: 20px; color: rgb(246, 132, 39);
     border-width:0px;
     border:none;
+    padding: 3px;
 }
 
 *:focus {
