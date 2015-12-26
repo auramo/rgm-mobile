@@ -30,6 +30,9 @@
     "installed_plugins": {
         "org.apache.cordova.core.inappbrowser": {
             "PACKAGE_NAME": "rgm.mobile"
+        },
+        "com.verso.cordova.clipboard": {
+            "PACKAGE_NAME": "rgm.mobile"
         }
     },
     "dependent_plugins": {}

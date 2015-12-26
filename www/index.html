@@ -31,9 +31,17 @@
           <div class="edit-container">
 	    <label>Site:</label><input type="text" class="creditem-site input-field"></input>
 	    <label>Description:</label><input type="text" class="creditem-description input-field"></input>
-	    <label>Username:</label><input type="text" class="creditem-user input-field"></input>
-	    <label>Password:</label><input type="text"
-	                                   class="creditem-password input-field"></input>
+            <div class="label-with-copy">
+	      <label>Username:</label>
+              <a href="#" class="copy-username">Copy</a>
+            </div>
+            <input type="text" class="creditem-user
+                                      input-field"></input>
+            <div class="label-with-copy">
+	      <label>Password:</label>
+              <a href="#" class="copy-password">Copy</a>
+            </div>
+            <input type="text" class="creditem-password input-field"></input>
             <div class="edit-buttons">
 	      <input class="rgm-button" type="button" name="save-creds" value="Save" />
 	      <input class="rgm-button" type="button"
@@ -46,7 +54,7 @@
 	     style="display:none;">
           <div class="login-container">
 	    <label class="master-password-message"></label><br/>
-	    <label class "master-password-prompt input-label">Master password:</label>
+            <label class "master-password-prompt input-label">Master password:</label>
 	    <input type="password" class="master-password
 	                                  input-field"></input>
             <div class="login-buttons">

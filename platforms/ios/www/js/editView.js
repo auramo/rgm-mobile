@@ -26,8 +26,15 @@ var editView = function() {
 
     function EditView(credentialRepository) {
 	this.credentialRepository = credentialRepository;
-	$( "input[value='X']" ).bind('click', function(evt) { close(); });
-
+	$( "input[name='edit-close']" ).bind('click', function(evt) { close(); });
+	$( ".copy-username" ).bind('click',
+                                   function(evt) {
+                                       cordova.plugins.clipboard.copy($('.creditem-user').val());
+                                   });
+	$( ".copy-password" ).bind('click',
+                                   function(evt) {
+                                       cordova.plugins.clipboard.copy($('.creditem-password').val());
+                                   });
 	Bacon.$
 	    .textFieldValue($(".creditem-site"))
 	    .map(function(val) { return val.length === 0; })

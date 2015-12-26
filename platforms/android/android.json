@@ -5,15 +5,15 @@
     },
     "config_munge": {
         "files": {
-            "config.xml": {
+            "res/xml/config.xml": {
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "xml": "<feature name=\"Clipboard\"><param name=\"android-package\" value=\"com.verso.cordova.clipboard.Clipboard\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Clipboard\"><param name=\"ios-package\" value=\"CDVClipboard\" /></feature>",
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.core.InAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -22,23 +22,15 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.core.inappbrowser": {
+        "com.verso.cordova.clipboard": {
             "PACKAGE_NAME": "rgm.mobile"
         },
-        "com.verso.cordova.clipboard": {
+        "org.apache.cordova.core.inappbrowser": {
             "PACKAGE_NAME": "rgm.mobile"
         }
     },
     "dependent_plugins": {},
     "modules": [
-        {
-            "file": "plugins/org.apache.cordova.core.inappbrowser/www/InAppBrowser.js",
-            "id": "org.apache.cordova.core.inappbrowser.InAppBrowser",
-            "pluginId": "org.apache.cordova.core.inappbrowser",
-            "clobbers": [
-                "window.open"
-            ]
-        },
         {
             "file": "plugins/com.verso.cordova.clipboard/www/clipboard.js",
             "id": "com.verso.cordova.clipboard.Clipboard",
@@ -46,10 +38,18 @@
             "clobbers": [
                 "cordova.plugins.clipboard"
             ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.core.inappbrowser/www/InAppBrowser.js",
+            "id": "org.apache.cordova.core.inappbrowser.InAppBrowser",
+            "pluginId": "org.apache.cordova.core.inappbrowser",
+            "clobbers": [
+                "window.open"
+            ]
         }
     ],
     "plugin_metadata": {
-        "org.apache.cordova.core.inappbrowser": "0.1.0",
-        "com.verso.cordova.clipboard": "0.1.0"
+        "com.verso.cordova.clipboard": "0.1.0",
+        "org.apache.cordova.core.inappbrowser": "0.1.0"
     }
 }

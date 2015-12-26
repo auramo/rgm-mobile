@@ -52,6 +52,15 @@ input[type="text"], input[type="password"] {
     padding: 3px;
 }
 
+a {
+    color: rgb(0, 166, 162);
+    font-family: 'TitilliumText22L-Thin';
+    font-weight: normal;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: none;
+}
+
 *:focus {
     outline: 0;
 }
@@ -93,4 +102,11 @@ input[type="button"]:disabled { color: rgb(69, 69, 69); }
 .edit-buttons {
     display: flex;
     flex-direction: row;
+}
+
+.label-with-copy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
 }

@@ -1,0 +1,11 @@
+{
+    "com.verso.cordova.clipboard": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/VersoSolutions/CordovaClipboard",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

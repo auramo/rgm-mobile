@@ -1,20 +1,65 @@
-
+.header-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
 .ui-content {
     background: black;
     color: rgb(0, 166, 162);
     font-family:'TitilliumText22L-Thin'; font-weight:normal; font-size: 20px;
 }
 
-.header { font-family:'TitilliumText22L-Light'; font-weight:normal; font-size:25px; color: white; }
+.header {
+    font-family:'TitilliumText22L-Light';
+    font-weight:normal;
+    font-size:25px;
+    color: white;
+}
 
-.credential-table-header { font-family:'TitilliumText22L-Light'; font-weight:normal; font-size:20px; color: white; }
+.login-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-container > label, .login-container input {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.credential-table-header {
+    font-family:'TitilliumText22L-Light';
+    font-weight:normal;
+    font-size:20px;
+    color: white;
+}
 
 .highlight { color: rgb(246, 132, 39); }
 
 .main-frame { margin: 20px; }
 
-input[type="text"], input[type="password"] { background: rgb(31, 25, 25); font-family: 'TitilliumText22L-Thin'; font-weight:normal; font-size: 20px; color: rgb(246, 132, 39); border-width:0px;
-border:none; }
+input[type="text"], input[type="password"] {
+    background: rgb(31, 25, 25);
+    font-family: 'TitilliumText22L-Thin';
+    font-weight:normal;
+    font-size: 20px; color: rgb(246, 132, 39);
+    border-width:0px;
+    border:none;
+    padding: 3px;
+}
+
+a {
+    color: rgb(0, 166, 162);
+    font-family: 'TitilliumText22L-Thin';
+    font-weight: normal;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: none;
+}
 
 *:focus {
     outline: 0;
@@ -43,3 +88,25 @@ input[type="button"]:disabled { color: rgb(69, 69, 69); }
 .credential-row > .site-name { max-width: 100px; }
 .credential-row > .site-description { max-width: 158px; }
 .new-button { margin: 10px 0px; 10px; 0px; }
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-container > label, .edit-container input {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.label-with-copy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+}
