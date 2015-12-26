@@ -24,7 +24,17 @@ border:none; }
 .find-label { margin-right: 15px; }
 tbody td { background: rgb(31, 25, 25); padding: 10px; font-size: 15px; }
 
-input[type="button"] { border-style: solid; border-color: rgb(0, 166, 162); color: white; padding: 7px; background: black; font-family:'TitilliumText22L-Light'; font-size: 20px; border-width: 1px; }
+input[type="button"] {
+    border-style: solid;
+    border-color: rgb(0, 166, 162);
+    color: white;
+    padding: 7px;
+    background: black;
+    font-family:'TitilliumText22L-Light';
+    font-size: 20px;
+    border-width: 1px;
+    -webkit-appearance: none;
+}
 
 input[type="button"]:active { background-color: rgb(0, 166, 162); }
 input[type="button"]:disabled { color: rgb(69, 69, 69); }
